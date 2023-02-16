@@ -1,0 +1,106 @@
+﻿@{
+    ViewData["Title"] = "To-do List";
+}
+
+@model List<TaskApplication>
+
+
+<div class="container mt-4">
+    <h1 class="text-center"> To-Do List</h1>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th class="text-center">Urgent</th>
+                <th class="text-center">Not Urgent</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th class="align-middle">Important</th>
+                <td class="text-center">
+                    <b>First Quadrant</b>
+                    <!-- Finds task from Database-->
+                    @foreach (var x in Model)
+                    {
+                        @if (x.Completed == true)
+                        {
+
+                        }
+                         <!--- Tells which Quadrant -->
+                        else if (x.Quadrant == 1)
+                        {
+                            <br />@x.Task
+                            <span> <a asp-controller="Home" asp-action="Edit" asp-route-applicationId="@x.ApplicationId"> Edit</a></span>
+                            <span><a asp-controller="Home" asp-action="Delete" asp-route-applicationId="@x.ApplicationId"> Delete </a></span>
+                        }
+
+                    }
+
+                </td>
+                <td class="text-center">
+
+                    <b>Second Quadrant</b>
+                    @foreach (var x in Model)
+                    {
+                        @if (x.Completed == true)
+                        {
+
+                        }
+                        else if (x.Quadrant == 2)
+                        {
+                            <br />@x.Task
+                            <span> <a asp-controller="Home" asp-action="Edit"  asp-route-applicationId="@x.ApplicationId"> Edit</a></span>
+                            <span><a asp-controller="Home" asp-action="Delete" asp-route-applicationId="@x.ApplicationId"> Delete </a></span>
+
+                        }
+
+                    }
+                </td>
+            </tr>
+            <tr>
+                <th class="align-middle">Not Important</th>
+
+                <td class="text-center">
+
+                    <b>Third Quadrant</b>
+                    @foreach (var x in Model)
+                    {
+                        @if (x.Completed == true)
+                        {
+
+                        }
+                        else if (x.Quadrant == 3)
+                        {
+                            <br />@x.Task
+                            <span> <a asp-controller="Home" asp-action="Edit" asp-route-applicationId="@x.ApplicationId"> Edit</a></span>
+                            <span><a asp-controller="Home" asp-action="Delete" asp-route-applicationId="@x.ApplicationId"> Delete </a></span>
+                        }
+
+                    }
+
+                </td>
+
+
+                <td class="text-center">
+                    <b>Fourth Quadrant</b>
+                    @foreach (var x in Model)
+                    {
+                        @if (x.Completed == true)
+                        {
+
+                        }
+                        else if (x.Quadrant == 4)
+                        {
+                            <br />@x.Task
+                            <span> <a asp-controller="Home" asp-action="Edit" asp-route-applicationId="@x.ApplicationId"> Edit</a></span>
+                            <span><a asp-controller="Home" asp-action="Delete" asp-route-applicationId="@x.ApplicationId"> Delete </a></span>
+                        }
+
+                    }
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

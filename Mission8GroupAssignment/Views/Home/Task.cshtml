@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewData["Title"] = "Task Form";
+}
+
+@model Mission8GroupAssignment.Models.TaskApplication
+<!-- To do List form-->
+<h1> What you need to do today?</h1>
+<br />
+
+<!-- Form-->
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Task" class="form-label"> Task</label>
+        <input asp-for="Task" type="text" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Duedate" class="form-label"> Due Date</label>
+        <input asp-for="Duedate" type="text" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Quadrant" class="form-label"> Quadrant </label>
+        <input asp-for="Quadrant" class="form-control" />
+    </div>
+    <!-- Grabs Category from Database-->
+    <div class="mb-3">
+        <label asp-for="CategoryId" class="form-label">Category</label>
+        <select asp-for="CategoryId" class="form-control">
+            <option value="Home"> Select a Category </option>
+            @foreach (Category c in ViewBag.Categories)
+                {
+                    <option value="@c.CategoryId">
+                        @c.CategoryName
+                    </option>
+                }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Completed" class="form-label">Completed</label>
+        <select asp-for="Completed" class="form-control">
+            <option value="true"> Yes </option>
+            <option value="false"> No</option>
+        </select>
+    </div>
+    <div class="col-auto">
+        <input type="submit" class="btn btn-primary mb-3" id="send" value="Submit Task">
+    </div>
+
+    <div asp-validation-summary="All"></div>
+
+
+</form>
