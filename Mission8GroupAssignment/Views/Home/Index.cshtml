@@ -23,17 +23,14 @@
                     <!-- Finds task from Database-->
                     @foreach (var x in Model)
                     {
-                        @if (x.Completed == true)
-                        {
-
-                        }
-                         <!--- Tells which Quadrant -->
-                        else if (x.Quadrant == 1)
+                        if (!x.Completed && x.Quadrant == 1)
                         {
                             <br />@x.Task
                             <span> <a asp-controller="Home" asp-action="Edit" asp-route-applicationId="@x.ApplicationId"> Edit</a></span>
                             <span><a asp-controller="Home" asp-action="Delete" asp-route-applicationId="@x.ApplicationId"> Delete </a></span>
                         }
+                        <!--- Tells which Quadrant -->
+                      
 
                     }
 
@@ -43,16 +40,11 @@
                     <b>Second Quadrant</b>
                     @foreach (var x in Model)
                     {
-                        @if (x.Completed == true)
-                        {
-
-                        }
-                        else if (x.Quadrant == 2)
+                        if (!x.Completed && x.Quadrant == 2)
                         {
                             <br />@x.Task
-                            <span> <a asp-controller="Home" asp-action="Edit"  asp-route-applicationId="@x.ApplicationId"> Edit</a></span>
+                            <span> <a asp-controller="Home" asp-action="Edit" asp-route-applicationId="@x.ApplicationId"> Edit</a></span>
                             <span><a asp-controller="Home" asp-action="Delete" asp-route-applicationId="@x.ApplicationId"> Delete </a></span>
-
                         }
 
                     }
@@ -66,11 +58,7 @@
                     <b>Third Quadrant</b>
                     @foreach (var x in Model)
                     {
-                        @if (x.Completed == true)
-                        {
-
-                        }
-                        else if (x.Quadrant == 3)
+                        if (!x.Completed && x.Quadrant == 3)
                         {
                             <br />@x.Task
                             <span> <a asp-controller="Home" asp-action="Edit" asp-route-applicationId="@x.ApplicationId"> Edit</a></span>
@@ -86,11 +74,7 @@
                     <b>Fourth Quadrant</b>
                     @foreach (var x in Model)
                     {
-                        @if (x.Completed == true)
-                        {
-
-                        }
-                        else if (x.Quadrant == 4)
+                        if (!x.Completed && x.Quadrant == 4)
                         {
                             <br />@x.Task
                             <span> <a asp-controller="Home" asp-action="Edit" asp-route-applicationId="@x.ApplicationId"> Edit</a></span>
@@ -104,3 +88,5 @@
         </tbody>
     </table>
 </div>
+
+
